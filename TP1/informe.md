@@ -20,6 +20,7 @@ Palabras clave: interconexión de redes, protocolos de comunicación
 
 ## Introducción
 
+<div style="text-align: justify;">
 El desarrollo de redes de conmutación y transmisión de paquetes surgió como respuesta a la necesidad de ampliar el acceso a recursos más allá de los sistemas aislados, lo que impulsó la interconexión de múltiples redes para posibilitar la comunicación entre estaciones ubicadas en distintos entornos. Este proceso, conocido como internetworking, se basa en la conexión de redes individuales a través de dispositivos intermedios, como puentes y enrutadores, que permiten que estas redes funcionen de manera integrada como si fueran una única unidad para los usuarios.
 
 En este contexto, se diferencian las redes individuales y sus respectivas subredes, donde los sistemas finales (ES) están conectados para la comunicación y los sistemas intermedios facilitan el intercambio de datos entre redes distintas. Existen dos tipos principales de dispositivos intermedios: los puentes, que operan en la capa 2 del modelo OSI y permiten la conexión entre redes LAN similares, y los enrutadores, que trabajan en la capa 3 y son capaces de interconectar redes con características heterogéneas. Para lograr una interconexión eficiente, se deben cumplir ciertos requisitos clave, como el establecimiento de enlaces, el encaminamiento de datos, la gestión de tráfico y la capacidad de adaptarse a las diferencias entre las redes conectadas.
@@ -37,9 +38,10 @@ El protocolo IP es no orientado a conexión, lo que significa que **los datos se
 Dado el creciente agotamiento de direcciones IPv4, se ha desarrollado IPv6, una versión mejorada del protocolo que expande significativamente el espacio de direcciones y proporciona nuevas funcionalidades. IPv6 utiliza direcciones de 128 bits, permitiendo una asignación más eficiente y simplificando la configuración de redes mediante mecanismos de autoconfiguración. El formato de los paquetes IPv6 incluye una cabecera principal y cabeceras de extensión opcionales, que pueden contener información adicional sobre seguridad, fragmentación, encaminamiento y control de flujo. A diferencia de IPv4, en IPv6 la fragmentación solo puede ser realizada por el nodo de origen, evitando que los enrutadores intermedios modifiquen los paquetes en tránsito.
 Otra innovación importante en IPv6 es el uso de distintos tipos de direcciones, que incluyen unidifusión (unicast) para la comunicación uno a uno, monodifusión (anycast) para la entrega eficiente de paquetes a un grupo de nodos y multidifusión (multicast) para el envío de datos a múltiples destinatarios simultáneamente. Además, IPv6 introduce la etiqueta de flujo, un campo que permite identificar secuencias de paquetes con requisitos de tratamiento especial.
 Por último, el protocolo IPv6 optimiza el encaminamiento mediante una cabecera específica, en la que se puede especificar una lista de nodos intermedios para definir una ruta preestablecida. Este enfoque mejora el control sobre el tráfico y permite una mejor adaptación a diversas condiciones de red.
+</div>
 
 ## Desarrollo
-# Parte 1 - Simulación de la red
+### Parte 1 - Simulación de la red
 
 Para el modelado de la red, se utilizó Cisco Packet Tracer, una herramienta de simulación que permite diseñar, configurar y probar infraestructuras de red sin necesidad de hardware físico. Se estableció una topología que refleja un entorno realista, interconectando distintos dispositivos de red y definiendo sus parámetros operativos. A lo largo del proceso, se configuraron switches, routers y terminales, asegurando que la comunicación entre los nodos fuera funcional y coherente con los objetivos planteados.
 
@@ -52,19 +54,28 @@ Además, se realizaron pruebas de conectividad para verificar el correcto funcio
 <img src="https://github.com/user-attachments/assets/ae531119-fca4-42ff-9e7e-82be9afc25e8" width="450" align="center" />
 
 Esto confirma la estabilidad y confiabilidad de la conectividad entre los hosts y proporciona una comprensión integral del estado de la red en términos de comunicación y accesibilidad.
-
- Evaluamos la conectividad entre todos los host enviando 3 (tres) paquetes ICMPv6, utilizando el comando ping para IPv6 de la siguiente manera para cada dispositivo:
+Se evaluó la conectividad entre todos los host enviando 3 (tres) paquetes ICMPv6, utilizando el comando ping para IPv6 de la siguiente manera para cada dispositivo:
 
 <img src="https://github.com/user-attachments/assets/57bc52c1-9b3c-4584-a677-2fe068b38c2e" width="600" align="center" />
 
+A continuación se inició tráfico ICMP (Internet Control Message Protocol)  entre h1 con destino a h2 con un ping desde h1 a la dirección IPv4 de h2  donde se observaron las siguientes comunicaciones:
 
-# Parte 2 - Implementación de la red
+<img src="https://github.com/user-attachments/assets/7579922b-5a4d-43a5-abbb-d893b1ffd80c" width="600" align="center" />
+
+
+El protocolo ARP (Address Resolution Protocol) se utiliza para mapear direcciones IP a direcciones MAC. Cuando un dispositivo necesita conocer la dirección MAC correspondiente a una dirección IP específica (por ejemplo, para comunicarse con otro dispositivo en la red), envía una solicitud ARP en forma de difusión a todos los dispositivos de la red local. Esta solicitud incluye la dirección IP del dispositivo al que intenta acceder. En el siguiente ejemplo, se muestra cómo h1 envía una solicitud ARP a la dirección IP del router.
+
+<img src="https://github.com/user-attachments/assets/e551be2c-2961-4a77-9123-8acc44f21fd7" width="600" align="center" />
+
+Cuando el dispositivo que posee la dirección IP solicitada recibe la solicitud, responde enviando su dirección MAC directamente al dispositivo que hizo la solicitud.
+Una vez que el dispositivo que realizó la solicitud recibe la respuesta ARP, guarda tanto la dirección IP como la dirección MAC en su caché ARP. Esto le permite evitar futuras solicitudes ARP para la misma dirección IP durante un período de tiempo determinado, ya que puede usar la información almacenada en su caché para comunicarse directamente con el dispositivo de destino. A continuación, se puede ver el caché ARP de h1 con la dirección IP y MAC del router.
+
+### Parte 2 - Implementación de la red
 Se utilizó un switch Cisco Catalyst 2960, un equipo de Capa 2 pensado para ofrecer conectividad estable en redes empresariales. Cuenta con 24 o 48 puertos Fast Ethernet, además de puertos Gigabit Ethernet para enlaces ascendentes, lo que permite una mejor escalabilidad de la red.
 
 El equipo soporta funciones de seguridad, como control de acceso mediante 802.1X y listas de control de acceso (ACLs), lo que ayuda a gestionar el tráfico de manera segura. Además, algunos modelos incluyen Power over Ethernet (PoE), facilitando la alimentación de dispositivos sin necesidad de cables adicionales.
 
-<img src="https://github.com/user-attachments/assets/6992a619-b824-4410-a0e6-6d8757a020b9" width="700" align="center" />
-
+<img src="https://github.com/user-attachments/assets/6992a619-b824-4410-a0e6-6d8757a020b9" width="900" align="center" />
 
 b) Para acceder a la configuración del switch Cisco Catalyst 2960, se ingresó al modo privilegiado a través de la consola. Primero, se solicitó la verificación de acceso, donde se introdujo la contraseña de usuario. Luego, mediante el comando enable, se accedió al modo privilegiado, lo que permitió ejecutar configuraciones avanzadas en el dispositivo.
 
