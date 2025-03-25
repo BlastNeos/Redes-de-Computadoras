@@ -38,4 +38,40 @@ Dado el creciente agotamiento de direcciones IPv4, se ha desarrollado IPv6, una 
 Otra innovación importante en IPv6 es el uso de distintos tipos de direcciones, que incluyen unidifusión (unicast) para la comunicación uno a uno, monodifusión (anycast) para la entrega eficiente de paquetes a un grupo de nodos y multidifusión (multicast) para el envío de datos a múltiples destinatarios simultáneamente. Además, IPv6 introduce la etiqueta de flujo, un campo que permite identificar secuencias de paquetes con requisitos de tratamiento especial.
 Por último, el protocolo IPv6 optimiza el encaminamiento mediante una cabecera específica, en la que se puede especificar una lista de nodos intermedios para definir una ruta preestablecida. Este enfoque mejora el control sobre el tráfico y permite una mejor adaptación a diversas condiciones de red.
 
+## Desarrollo
+# Parte 1 - Simulación de la red
 
+Para el modelado de la red, se utilizó Cisco Packet Tracer, una herramienta de simulación que permite diseñar, configurar y probar infraestructuras de red sin necesidad de hardware físico. Se estableció una topología que refleja un entorno realista, interconectando distintos dispositivos de red y definiendo sus parámetros operativos. A lo largo del proceso, se configuraron switches, routers y terminales, asegurando que la comunicación entre los nodos fuera funcional y coherente con los objetivos planteados.
+
+![image](https://github.com/user-attachments/assets/121b80ca-32bd-4431-8dac-10b259ae99b6)
+
+En este contexto, es importante diferenciar entre un simulador y un emulador. Un simulador genera una representación matemática y lógica de una red, permitiendo evaluar distintos escenarios sin requerir hardware específico. Su uso es ideal para el análisis teórico y la validación de configuraciones. En cambio, un emulador reproduce el comportamiento real de una red al utilizar dispositivos y software auténticos o virtualizados, lo que permite realizar pruebas más cercanas a un entorno de producción. Aunque los emuladores ofrecen una mayor fidelidad en la representación de la red, requieren más recursos y pueden ser más complejos de implementar.
+
+Además, se realizaron pruebas de conectividad para verificar el correcto funcionamiento de la red, utilizando comandos como ping y arp -a para analizar la resolución de direcciones y la transmisión de paquetes entre dispositivos. Gracias a las herramientas de simulación y monitoreo de Packet Tracer, fue posible observar el flujo de datos y diagnosticar posibles errores en la configuración.
+
+![image](https://github.com/user-attachments/assets/57173178-d340-4a9a-a546-c1c8c048579e)
+
+
+![image](https://github.com/user-attachments/assets/c3c4a3cc-dc03-49d9-af7d-cb3f20cdf060)
+
+
+
+
+# Parte 2 - Implementación de la red
+Se utilizó un switch Cisco Catalyst 2960, un equipo de Capa 2 pensado para ofrecer conectividad estable en redes empresariales. Cuenta con 24 o 48 puertos Fast Ethernet, además de puertos Gigabit Ethernet para enlaces ascendentes, lo que permite una mejor escalabilidad de la red.
+
+El equipo soporta funciones de seguridad, como control de acceso mediante 802.1X y listas de control de acceso (ACLs), lo que ayuda a gestionar el tráfico de manera segura. Además, algunos modelos incluyen Power over Ethernet (PoE), facilitando la alimentación de dispositivos sin necesidad de cables adicionales.
+
+![image](https://github.com/user-attachments/assets/6992a619-b824-4410-a0e6-6d8757a020b9)
+
+b) Para acceder a la configuración del switch Cisco Catalyst 2960, se ingresó al modo privilegiado a través de la consola. Primero, se solicitó la verificación de acceso, donde se introdujo la contraseña de usuario. Luego, mediante el comando enable, se accedió al modo privilegiado, lo que permitió ejecutar configuraciones avanzadas en el dispositivo.
+
+Posteriormente, con "configure terminal", se ingresó al modo de configuración global, lo que permitió realizar ajustes en la seguridad del dispositivo donde se estableció una contraseña de acceso y posteriormente se utilizó exit para salir del modo de configuración y volver al modo privilegiado.
+
+![image](https://github.com/user-attachments/assets/e2ccb18e-7549-4583-90d1-a511e1953dce)
+
+c) Siguiendo con el desarrollo de las actividades se estableció una conexión entre el switch y varios dispositivos a los fines de verificar la conectividad, esto se realizo mediante el comando "ping" como se muestra a continuación:
+
+![image](https://github.com/user-attachments/assets/04587d97-6af1-4d62-a78c-c822f7591975)
+
+![image](https://github.com/user-attachments/assets/7925c656-333f-4756-90cb-dae15cb4e48d)
