@@ -49,12 +49,13 @@ En este contexto, es importante diferenciar entre un simulador y un emulador. Un
 
 Además, se realizaron pruebas de conectividad para verificar el correcto funcionamiento de la red, utilizando comandos como ping y arp -a para analizar la resolución de direcciones y la transmisión de paquetes entre dispositivos. Gracias a las herramientas de simulación y monitoreo de Packet Tracer, fue posible observar el flujo de datos y diagnosticar posibles errores en la configuración.
 
-![image](https://github.com/user-attachments/assets/57173178-d340-4a9a-a546-c1c8c048579e)
+<img src="https://github.com/user-attachments/assets/ae531119-fca4-42ff-9e7e-82be9afc25e8" width="450" align="center" />
 
+Esto confirma la estabilidad y confiabilidad de la conectividad entre los hosts y proporciona una comprensión integral del estado de la red en términos de comunicación y accesibilidad.
 
-![image](https://github.com/user-attachments/assets/c3c4a3cc-dc03-49d9-af7d-cb3f20cdf060)
+ Evaluamos la conectividad entre todos los host enviando 3 (tres) paquetes ICMPv6, utilizando el comando ping para IPv6 de la siguiente manera para cada dispositivo:
 
-
+<img src="https://github.com/user-attachments/assets/57bc52c1-9b3c-4584-a677-2fe068b38c2e" width="600" align="center" />
 
 
 # Parte 2 - Implementación de la red
@@ -62,7 +63,8 @@ Se utilizó un switch Cisco Catalyst 2960, un equipo de Capa 2 pensado para ofre
 
 El equipo soporta funciones de seguridad, como control de acceso mediante 802.1X y listas de control de acceso (ACLs), lo que ayuda a gestionar el tráfico de manera segura. Además, algunos modelos incluyen Power over Ethernet (PoE), facilitando la alimentación de dispositivos sin necesidad de cables adicionales.
 
-![image](https://github.com/user-attachments/assets/6992a619-b824-4410-a0e6-6d8757a020b9)
+<img src="https://github.com/user-attachments/assets/6992a619-b824-4410-a0e6-6d8757a020b9" width="700" align="center" />
+
 
 b) Para acceder a la configuración del switch Cisco Catalyst 2960, se ingresó al modo privilegiado a través de la consola. Primero, se solicitó la verificación de acceso, donde se introdujo la contraseña de usuario. Luego, mediante el comando enable, se accedió al modo privilegiado, lo que permitió ejecutar configuraciones avanzadas en el dispositivo.
 
@@ -72,6 +74,6 @@ Posteriormente, con "configure terminal", se ingresó al modo de configuración 
 
 c) Siguiendo con el desarrollo de las actividades se estableció una conexión entre el switch y varios dispositivos a los fines de verificar la conectividad, esto se realizo mediante el comando "ping" como se muestra a continuación:
 
-![image](https://github.com/user-attachments/assets/04587d97-6af1-4d62-a78c-c822f7591975)
+<img src="https://github.com/user-attachments/assets/04587d97-6af1-4d62-a78c-c822f7591975" width="450" align="center" />
 
-![image](https://github.com/user-attachments/assets/7925c656-333f-4756-90cb-dae15cb4e48d)
+<img src="https://github.com/user-attachments/assets/7925c656-333f-4756-90cb-dae15cb4e48d" width="450" align="center" />
