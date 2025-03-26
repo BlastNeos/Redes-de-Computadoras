@@ -70,6 +70,61 @@ El protocolo ARP (Address Resolution Protocol) se utiliza para mapear direccione
 Cuando el dispositivo que posee la dirección IP solicitada recibe la solicitud, responde enviando su dirección MAC directamente al dispositivo que hizo la solicitud.
 Una vez que el dispositivo que realizó la solicitud recibe la respuesta ARP, guarda tanto la dirección IP como la dirección MAC en su caché ARP. Esto le permite evitar futuras solicitudes ARP para la misma dirección IP durante un período de tiempo determinado, ya que puede usar la información almacenada en su caché para comunicarse directamente con el dispositivo de destino. A continuación, se puede ver el caché ARP de h1 con la dirección IP y MAC del router.
 
+<img  src="https://github.com/user-attachments/assets/43e4e585-1135-4f80-aa51-f32fb73aa9fc" width="600" align="center" />
+
+En la tabla ARP de h1 se puede identificar la dirección MAC del router, mientras que en la tabla ARP de h3 no se encuentra ninguna dirección, ya que no se han enviado paquetes hacia ese dispositivo ni ha recibido paquetes.
+
+<img src="https://github.com/user-attachments/assets/587d48c3-8b9a-4857-940d-cd317e4d88d1" width="600" align="center" />
+
+Por otro lado, la tabla ARP de h2 contiene la dirección IP y la MAC de la interfaz GigabitEthernet 0/0/1 del router.
+
+<img src="https://github.com/user-attachments/assets/e7bacdaf-6e9d-46d1-8a27-113e0c19661c" width="600" align="center" />
+
+En la tabla ARP del router se encuentran las direcciones IP y MAC de h1, h2, GigabitEthernet 0/0/0 y GigabitEthernet 0/0/1, así como el tiempo de vida de cada entrada y la interfaz a la que pertenecen. 
+
+<img src="https://github.com/user-attachments/assets/f5034ef6-d854-49c1-880d-faaf5a1c4a8a" width="600" align="center" />
+
+En los datagramas se observan las direcciones IP de origen y destino, las cuales son utilizadas para encaminar los paquetes correctamente a través de la red.
+El enrutador determina la comunicación entre dos hosts examinando la dirección IP de destino del paquete y utilizando su tabla de enrutamiento para determinar la mejor ruta hacia ese destino. Luego, reenvía el paquete a través de la interfaz de red adecuada hacia el siguiente salto en la ruta hacia el destino final.
+
+<img src="https://github.com/user-attachments/assets/b8ae719a-04d6-4078-9890-0f9cf9898321" width="600" align="center" />
+
+El switch es un dispositivo utilizado para conectar múltiples dispositivos dentro de una misma red local (LAN). A diferencia de otros dispositivos como los routers, el switch no necesita direcciones IP, ya que su función principal es dirigir los paquetes de datos basándose en las direcciones MAC de los dispositivos conectados.
+
+Uno de los principales beneficios de utilizar un switch es su capacidad para conectar diversos dispositivos de red, como computadoras, impresoras y servidores, dentro de la misma red local. Además, un switch divide la red en segmentos más pequeños, lo cual contribuye a reducir la congestión y mejorar el rendimiento de la red, limitando el tráfico transmitido a través de cada uno de sus puertos.
+
+Otra ventaja importante es el envío selectivo de los paquetes de datos. El switch identifica la dirección MAC de destino de cada paquete y lo envía solo al puerto de salida correspondiente, lo que optimiza la eficiencia en la transmisión de datos dentro de la red. Además, el switch aprende las direcciones MAC de los dispositivos conectados a sus puertos y construye una tabla de direcciones MAC para determinar la ruta más adecuada para los paquetes entrantes.
+
+A diferencia de los hubs, los switches son capaces de detectar y evitar colisiones de datos, ya que pueden transmitir información simultáneamente a través de diferentes puertos. Esto asegura una mayor fiabilidad en la transmisión de datos dentro de la red.
+
+En cuanto al marco teórico, las direcciones de broadcast en IPv4 son direcciones especiales que permiten enviar un paquete de datos a todos los dispositivos de una red. Estas direcciones se representan con una dirección IP en la que todos los bits correspondientes al host están configurados en 1. En la red Ethernet, la dirección de broadcast se utiliza con la dirección MAC FFFF.FFFF.FFFF.
+
+Por otro lado, las direcciones de multicast en IPv4 son utilizadas para enviar un paquete de datos a un grupo específico de dispositivos dentro de una red. Las direcciones multicast se encuentran en el rango reservado de direcciones IP de clase D, que va desde 224.0.0.0 hasta 239.255.255.255. Los dispositivos que deseen recibir los paquetes multicast deben unirse al grupo multicast correspondiente, lo que permite una distribución más eficiente de los datos dentro de la red.
+
+Se inició tráfico ICMPv3 (IPv6) entre h1 y h3 y analizamos el mismo sobre las dos redes.
+
+<img src="https://github.com/user-attachments/assets/ab525262-d5e5-49d6-ac92-0c4a529ec4a5" width="600" align="center" />
+
+Se identificaron comunicaciones NDP, algunos mensajes de este tipo que suceden son los de solicitud de vecinos y de anuncio de vecinos como los que se ven a continuación:
+
+<img src="https://github.com/user-attachments/assets/04493401-668c-4eb8-83c9-975835f0ade3" width="600" align="center" />
+
+A continuación se puede observar como el router reconoció a los vecinos y mapeo las direcciones MAC de la capa de linkeo:
+
+<img src="https://github.com/user-attachments/assets/c93ddcde-4ab6-4cf8-bf6a-3b2e0ce858e4" width="600" align="center" />
+
+El protocolo NDP (Neighbor Discovery Protocol) en IPv6 cumple un rol equivalente al ARP (Address Resolution Protocol) en IPv4. Su propósito principal es ayudar a los dispositivos a resolver direcciones y descubrir información relevante dentro de la red local. A través de mensajes de solicitud y respuesta, NDP permite a los dispositivos IPv6 identificar las direcciones MAC de los dispositivos vecinos cuando se conoce su dirección IP. Este proceso se lleva a cabo mediante los mensajes de Neighbor Solicitation (NS) y Neighbor Advertisement (NA).
+
+Además, NDP facilita el descubrimiento de dispositivos en la misma red local. Para ello, utiliza los mensajes de Router Solicitation (RS) y Router Advertisement (RA), que permiten a los dispositivos identificar los routers disponibles y obtener la información necesaria sobre la configuración de la red. En paralelo, también se emplean los mensajes NS y NA para descubrir otros dispositivos IPv6 vecinos.
+
+Otro aspecto importante de NDP es su capacidad para permitir la autoconfiguración de direcciones IPv6. Esto elimina la necesidad de servidores DHCP, ya que los dispositivos pueden auto asignarse direcciones IPv6 únicas. A través de los mensajes de NS y NA, los dispositivos pueden verificar si la dirección IPv6 que intentan configurar está duplicada en la red, asegurando así una asignación correcta.
+
+NDP también juega un papel clave en el descubrimiento de prefijos. Informa a los dispositivos sobre los prefijos utilizados en la red, facilitando la autoconfiguración de direcciones IPv6 y asegurando que la conectividad se mantenga sin problemas.
+
+En cuanto a la función de broadcast, que en IPv4 permite enviar paquetes a todos los dispositivos de una red, IPv6 la reemplaza con multicast. En lugar de inundar la red con paquetes, IPv6 envía los paquetes solo a un grupo específico de dispositivos interesados en recibirlos. Esto ayuda a reducir el tráfico de red y mejora la eficiencia de las comunicaciones.
+
+Por último, las direcciones en IPv6 se dividen en tres tipos: link-local, unique-local y global. Las direcciones link-local, que comienzan con el prefijo FE80::/10, se utilizan para la comunicación dentro de la misma red local y no son enrutables fuera de ella. Son esenciales para la comunicación entre dispositivos en una misma subred. Las direcciones unique-local, con el prefijo FC00::/7, son únicas dentro de una red privada, similar a las direcciones privadas en IPv4, y se usan en redes corporativas o privadas. Finalmente, las direcciones globales, que comienzan con el prefijo 2000::/3, son públicas y se utilizan para la comunicación en Internet, siendo enrutable a nivel global.
+
 ### Parte 2 - Implementación de la red
 Se utilizó un switch Cisco Catalyst 2960, un equipo de Capa 2 pensado para ofrecer conectividad estable en redes empresariales. Cuenta con 24 o 48 puertos Fast Ethernet, además de puertos Gigabit Ethernet para enlaces ascendentes, lo que permite una mejor escalabilidad de la red.
 
