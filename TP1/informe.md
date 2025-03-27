@@ -1,15 +1,17 @@
 # Configuración y Análisis de tráfico IPv4/IPv6
   
-**-Federico I Soria**
+**-Federico I Soria** - **40574892**
 
-**-Fernando Zarate**  
+**-Fernando Zarate** - **45547216**
 
 **Ping Slayers**
 
 **Facultad de Ciencias Exactas, Fisicas y Naturales**  
 **Redes de Computadoras**
 
-**Profesores** (para publicaciones de alumnos)  --> AGREGAR
+**Santiago Martin Henn** 
+
+**Facundo Oliva Cuneo**
 
 **Marzo 2024**  
 
