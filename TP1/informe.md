@@ -145,3 +145,29 @@ c) Siguiendo con el desarrollo de las actividades se estableció una conexión e
 <img src="https://github.com/user-attachments/assets/04587d97-6af1-4d62-a78c-c822f7591975" width="450" align="center" />
 
 <img src="https://github.com/user-attachments/assets/7925c656-333f-4756-90cb-dae15cb4e48d" width="450" align="center" />
+
+d) Realizamos las sigueintes actividades para configurar un puerto del switch en modo mirroring y utilizar una tercera computadora para supervisar el trafico entre otras 2:
+  1. Acceder al switch mediante un software de emulación de terminal, como PuTTY.
+
+  2. Ingresamos al modo de configuración global ejecutando el comando enable.
+
+  3. Entramos en el modo de configuración de interfaz con el comando configure terminal.
+
+  4. Definimos el puerto de monitoreo (destino) con el comando monitor session 1 destination interface [número-de-puerto].
+
+  5. Especificamos los puertos origen (los que serán supervisados) utilizando monitor session 1 source interface [número-de-puerto].
+
+  6. Establecemos el tipo de tráfico a capturar con monitor session 1 filter [tipo-de-tráfico].
+
+  7. Conectamos la tercera computadora al puerto de monitoreo del switch.
+
+Luego de esto monitoreamos el trafico entre las 2 maquinas usando el software de analisis de red Wireshark. 
+
+![f1](https://github.com/user-attachments/assets/12547fea-4cb5-486a-af85-5789b0d1243b)
+
+En donde podemos observar comunicaciones ARP y las direcciones IP.
+
+![f2](https://github.com/user-attachments/assets/77058afd-2f85-4efc-9c3f-2ab4c3266e91)
+![f3](https://github.com/user-attachments/assets/75d578ec-a25c-4cc4-94ce-84128f3cc15e)
+![f4](https://github.com/user-attachments/assets/50904990-93f5-482a-a925-45675a5328b3)
+
