@@ -65,7 +65,8 @@ A continuación se inició tráfico ICMP (Internet Control Message Protocol)  en
 <img src="https://github.com/user-attachments/assets/7579922b-5a4d-43a5-abbb-d893b1ffd80c" width="600" align="center" />
 
 
-El protocolo ARP (Address Resolution Protocol) se utiliza para mapear direcciones IP a direcciones MAC. Cuando un dispositivo necesita conocer la dirección MAC correspondiente a una dirección IP específica (por ejemplo, para comunicarse con otro dispositivo en la red), envía una solicitud ARP en forma de difusión a todos los dispositivos de la red local. Esta solicitud incluye la dirección IP del dispositivo al que intenta acceder. En el siguiente ejemplo, se muestra cómo h1 envía una solicitud ARP a la dirección IP del router.
+El protocolo ARP (Address Resolution Protocol) se utiliza para mapear direcciones IP a direcciones MAC. Cuando un dispositivo necesita conocer la dirección MAC correspondiente a una dirección IP específica (por ejemplo, para comunicarse con otro dispositivo en la red), envía una solicitud ARP en forma de difusión a todos los dispositivos de la red local. Esta solicitud incluye la dirección IP del dispositivo al que intenta acceder. 
+En el siguiente ejemplo, se muestra cómo h1 envía una solicitud ARP a la dirección IP del router.
 
 <img src="https://github.com/user-attachments/assets/e551be2c-2961-4a77-9123-8acc44f21fd7" width="600" align="center" />
 
@@ -73,6 +74,8 @@ Cuando el dispositivo que posee la dirección IP solicitada recibe la solicitud,
 Una vez que el dispositivo que realizó la solicitud recibe la respuesta ARP, guarda tanto la dirección IP como la dirección MAC en su caché ARP. Esto le permite evitar futuras solicitudes ARP para la misma dirección IP durante un período de tiempo determinado, ya que puede usar la información almacenada en su caché para comunicarse directamente con el dispositivo de destino. A continuación, se puede ver el caché ARP de h1 con la dirección IP y MAC del router.
 
 <img  src="https://github.com/user-attachments/assets/43e4e585-1135-4f80-aa51-f32fb73aa9fc" width="600" align="center" />
+
+El switch es un dispositivo utilizado para conectar múltiples dispositivos dentro de una misma red local (LAN). A diferencia de otros dispositivos como los routers, el switch no necesita direcciones IP, ya que su función principal es dirigir los paquetes de datos basándose en las direcciones MAC de los dispositivos conectados.
 
 En la tabla ARP de h1 se puede identificar la dirección MAC del router, mientras que en la tabla ARP de h3 no se encuentra ninguna dirección, ya que no se han enviado paquetes hacia ese dispositivo ni ha recibido paquetes.
 
@@ -91,15 +94,13 @@ El enrutador determina la comunicación entre dos hosts examinando la dirección
 
 <img src="https://github.com/user-attachments/assets/b8ae719a-04d6-4078-9890-0f9cf9898321" width="600" align="center" />
 
-El switch es un dispositivo utilizado para conectar múltiples dispositivos dentro de una misma red local (LAN). A diferencia de otros dispositivos como los routers, el switch no necesita direcciones IP, ya que su función principal es dirigir los paquetes de datos basándose en las direcciones MAC de los dispositivos conectados.
-
 Uno de los principales beneficios de utilizar un switch es su capacidad para conectar diversos dispositivos de red, como computadoras, impresoras y servidores, dentro de la misma red local. Además, un switch divide la red en segmentos más pequeños, lo cual contribuye a reducir la congestión y mejorar el rendimiento de la red, limitando el tráfico transmitido a través de cada uno de sus puertos.
 
 Otra ventaja importante es el envío selectivo de los paquetes de datos. El switch identifica la dirección MAC de destino de cada paquete y lo envía solo al puerto de salida correspondiente, lo que optimiza la eficiencia en la transmisión de datos dentro de la red. Además, el switch aprende las direcciones MAC de los dispositivos conectados a sus puertos y construye una tabla de direcciones MAC para determinar la ruta más adecuada para los paquetes entrantes.
 
 A diferencia de los hubs, los switches son capaces de detectar y evitar colisiones de datos, ya que pueden transmitir información simultáneamente a través de diferentes puertos. Esto asegura una mayor fiabilidad en la transmisión de datos dentro de la red.
 
-En cuanto al marco teórico, las direcciones de broadcast en IPv4 son direcciones especiales que permiten enviar un paquete de datos a todos los dispositivos de una red. Estas direcciones se representan con una dirección IP en la que todos los bits correspondientes al host están configurados en 1. En la red Ethernet, la dirección de broadcast se utiliza con la dirección MAC FFFF.FFFF.FFFF.
+Otro punto importante son las direcciones de broadcast en IPv4 son direcciones especiales que permiten enviar un paquete de datos a todos los dispositivos de una red. Estas direcciones se representan con una dirección IP en la que todos los bits correspondientes al host están configurados en 1. En la red Ethernet, la dirección de broadcast se utiliza con la dirección MAC FFFF.FFFF.FFFF.
 
 Por otro lado, las direcciones de multicast en IPv4 son utilizadas para enviar un paquete de datos a un grupo específico de dispositivos dentro de una red. Las direcciones multicast se encuentran en el rango reservado de direcciones IP de clase D, que va desde 224.0.0.0 hasta 239.255.255.255. Los dispositivos que deseen recibir los paquetes multicast deben unirse al grupo multicast correspondiente, lo que permite una distribución más eficiente de los datos dentro de la red.
 
