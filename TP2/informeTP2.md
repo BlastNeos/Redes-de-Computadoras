@@ -2,7 +2,7 @@
 
 ## Resumen Ejecutivo
 
-En este trabajo nos propusimos diseñar, implementar y evaluar una red de laboratorio basada en topologías multi-path. Para ello, configuramos una serie de PCs, switches y routers siguiendo una estructura modular. Cada grupo de computadoras se conectó a un switch, que a su vez se enlazaba con un router y así sucesivamente, formando una red escalable. 
+En este trabajo se propuso diseñar, implementar y evaluar una red de laboratorio basada en topologías multi-path. Para ello, configuramos una serie de PCs, switches y routers siguiendo una estructura modular. Cada grupo de computadoras se conectó a un switch, que a su vez se enlazaba con un router y así sucesivamente, formando una red escalable. 
 
 Utilizamos tanto enrutamiento estático como dinámico, y realizamos pruebas de conectividad mediante ICMP (ping). Para evaluar el rendimiento de la red, empleamos herramientas como **iperf3** y **Wireshark**, comparando el comportamiento de los protocolos **TCP y UDP** en diferentes escenarios. Nuestro enfoque principal fue analizar el ancho de banda, los tiempos de respuesta y la pérdida de paquetes.
 
