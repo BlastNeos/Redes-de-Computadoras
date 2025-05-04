@@ -1,8 +1,8 @@
 # TP2 - Evaluación de Performance en Redes y Topologías Multi-Path
 
-## Resumen Ejecutivo
+## Resumen 
 
-En este trabajo se propuso diseñar, implementar y evaluar una red de laboratorio basada en topologías multi-path. Para ello, configuramos una serie de PCs, switches y routers siguiendo una estructura modular. Cada grupo de computadoras se conectó a un switch, que a su vez se enlazaba con un router y así sucesivamente, formando una red escalable. 
+En este trabajo se propuso diseñar, implementar y evaluar una red de laboratorio basada en topologías multi-path. Para ello, configuramos una serie de PCs, switches y routers siguiendo una estructura modular. Cada grupo de computadoras se conectó a un switch, que a su vez se enlazaba con un router y así sucesivamente, formando una red escalable, a continuación se muestra el esquema topologico de la red implementada. 
 
 Utilizamos tanto enrutamiento estático como dinámico, y realizamos pruebas de conectividad mediante ICMP (ping). Para evaluar el rendimiento de la red, empleamos herramientas como **iperf3** y **Wireshark**, comparando el comportamiento de los protocolos **TCP y UDP** en diferentes escenarios. Nuestro enfoque principal fue analizar el ancho de banda, los tiempos de respuesta y la pérdida de paquetes.
 
@@ -23,10 +23,7 @@ Para el armado de la red utilizamos 2 o 3 PCs por grupo, cada una con direccione
 A nivel software, trabajamos principalmente con **iperf3**, una herramienta esencial para medir el rendimiento de red, y con **Wireshark**, que nos permitió capturar y analizar el tráfico. Las pruebas de conectividad se realizaron sobre sistemas operativos con soporte para comandos como `ping`, `ipconfig`, `ifconfig` o `ip addr`.
 
 ## Topología de Red
-
-La red que diseñamos seguía un patrón modular. Cada grupo local tenía entre dos y tres PCs conectadas a un switch. Estas máquinas se comunicaban internamente utilizando direcciones IP fijas, permitiendo pruebas básicas de conectividad. 
-
-Los switches se conectaban a routers que actuaban como puertas de enlace hacia otros grupos. Esta estructura se repetía de forma sistemática, permitiendo ampliar la red de manera sencilla y manteniendo la coherencia en la configuración general.
+![image](https://github.com/user-attachments/assets/99a8cd68-51c2-4334-b9ea-276378ba25ff)
 
 ## Configuración y Pruebas de Conectividad
 
