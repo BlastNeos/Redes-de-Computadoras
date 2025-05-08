@@ -1,6 +1,9 @@
-# Parte I - Integración de conceptos, actividades online e investigación
+# Ruteo externo dinámico (Border Gateway Protocol (BGP)) y sistemas autónomos (Autonomous Systems (AS))
 
-## 1) Investigar y elaborar reportes sobre los siguientes conceptos e información sobre AS:
+
+## Parte I - Integración de conceptos, actividades online e investigación
+
+### 1) Investigar y elaborar reportes sobre los siguientes conceptos e información sobre AS:
 
 a) Un Autonomous System (AS) es un conjunto de redes IP y routers bajo un mismo control administrativo que comparten una política de enrutamiento común. Estos sistemas suelen pertenecer a proveedores de servicios de Internet, grandes empresas, universidades u organizaciones gubernamentales, y son la unidad básica sobre la que se asienta el enrutamiento global en Internet.
 Una forma simplificada es pensarlo como la oficina de correos de una ciudad. El correo va de una oficina de correos a otra hasta que llega a la ciudad correcta, y la oficina de correos de esa ciudad entregará el correo en esa ciudad. Del mismo modo, los paquetes de datos recorren Internet saltando de AS a AS hasta que llegan al AS que contiene su dirección de Protocolo de Internet (IP) de destino. Los enrutadores dentro de ese AS envían el paquete a la dirección IP.
@@ -29,7 +32,7 @@ A continuación se agregan las características de la red, donde se detallan a q
 
 ![image](https://github.com/user-attachments/assets/9c0f082d-61a9-49e6-8068-4ffbf93c57a2)
 
-## 2) Investigar y elaborar reportes sobre los siguientes conceptos e información sobre BGP:
+### 2) Investigar y elaborar reportes sobre los siguientes conceptos e información sobre BGP:
 
 a) El Border Gateway Protocol (BGP) es el protocolo de enrutamiento principal que permite la interconexión y el intercambio de información de rutas entre diferentes Sistemas Autónomos (AS) en Internet. Está diseñado como un protocolo de vector de ruta y toma decisiones de enrutamiento basadas en atributos como el número de AS atravesados, la preferencia de ruta y políticas definidas por los administradores de red. Esto proporciona un control granular sobre cómo se enruta el tráfico entre distintas redes, garantizando estabilidad y eficiencia.
 
@@ -93,7 +96,7 @@ Durante una tarea rutinaria de mantenimiento, los ingenieros de Facebook ejecuta
 Este incidente destacó la fragilidad de la infraestructura de Internet y la importancia de una gestión cuidadosa de los protocolos de enrutamiento como BGP. También subrayó la necesidad de implementar medidas de seguridad adicionales, como la validación de rutas mediante RPKI (Resource Public Key Infrastructure), para prevenir errores de configuración que puedan tener consecuencias de gran alcance.
 
 
-# Parte II - Simulaciones y análisis
+## Parte II - Simulaciones y análisis
 Se implementó la siguiente red en packet tracer: 
 
 ![image](https://github.com/user-attachments/assets/8b71f643-405f-4423-a2b0-1d0094bfb7bc)
